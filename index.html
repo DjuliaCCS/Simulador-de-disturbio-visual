@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador de Condições Oftalmológicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="painel">
+        <h1>Simulador de Visão</h1>
+        <p>Selecione um distúrbio para entender como ele afeta a visão:</p>
+        
+        <select id="seletor-disturbio">
+            <option value="normal">Visão Normal</option>
+            <option value="miopia">Miopia</option>
+            <option value="catarata">Catarata</option>
+            <option value="glaucoma">Glaucoma</option>
+            <option value="degeneracao-macular">Degeneração Macular</option>
+        </select>
+    </div>
+
+    <!-- Cenário que sofrerá as alterações -->
+    <div id="cenario" class="cenario normal">
+        <!-- Camada transparente usada para aplicar máscaras/gradientes (Glaucoma/Degeneração) -->
+        <div class="overlay"></div>
+        
+        <img src="imagem.png" alt="Cenário rico em detalhes" class="imagem-cenario">
+        
+        <div class="texto-cenario">
+            <h2>Lendo o Mundo</h2>
+            <p>
+                Este parágrafo serve como teste de leitura. Pessoas com condições oftalmológicas enfrentam diferentes obstáculos. Algumas perdem a nitidez geral das formas, outras perdem a capacidade de perceber cores vibrantes e contrastes, e outras ainda podem ter o centro ou a periferia do seu campo de visão bloqueados.
+            </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
