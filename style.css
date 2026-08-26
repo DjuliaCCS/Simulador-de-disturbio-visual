@@ -1,0 +1,106 @@
+/* Reset básico de estilos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 15px;
+}
+
+.painel {
+    background-color: white;
+    padding: 20px 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+    text-align: center;
+    width: 100%;
+    max-width: 700px;
+}
+
+select {
+    margin-top: 15px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    width: 100%;
+    max-width: 300px;
+}
+
+/* Container principal do cenário */
+.cenario {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden; /* Garante que as imagens e overlays não vazem as bordas */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.imagem-cenario {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    transition: filter 0.5s ease;
+}
+
+.texto-cenario {
+    padding: 30px;
+    transition: filter 0.5s ease;
+}
+
+.texto-cenario h2 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+/* Camada vazia posicionada por cima de tudo para efeitos de sombra */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Permite que o usuário clique e selecione o texto por baixo */
+    transition: background 0.5s ease;
+    z-index: 10;
+}
+
+
+/* =========================================
+   LÓGICA DOS DISTÚRBIOS (CLASSES)
+   ========================================= */
+
+/* Visão Normal */
+.normal .overlay { background: transparent; }
+.normal .imagem-cenario, .normal .texto-cenario { filter: none; }
+
+/* Miopia: Desfoque geral */
+.miopia .imagem-cenario, .miopia .texto-cenario {
+    filter: blur(4px);
+}
+
+/* Catarata: Desfoque, perda de contraste, luz estourada e tom opaco/amarelado (sepia) */
+.catarata .imagem-cenario, .catarata .texto-cenario {
+    filter: blur(2px) contrast(60%) brightness(120%) sepia(30%);
+}
+
+/* Glaucoma: Visão de túnel (escuridão periférica) */
+.glaucoma .overlay {
+    background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.95) 75%);
+}
+
+/* Degeneração Macular: Perda da visão central (ponto escuro no meio) */
+.degeneracao-macular .overlay {
+    background: radial-gradient(circle at center, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.8) 10%, transparent 25%);
+}
